@@ -25,6 +25,10 @@ cookieButton?.addEventListener("click", () => {
   cookie?.classList.add("is-hidden");
 });
 
+document
+  .querySelectorAll("main > section, .metrics article, .product-cards article, .catalog-grid article, .steps-grid article, .contact-grid article")
+  .forEach((item) => item.classList.add("reveal"));
+
 const revealItems = document.querySelectorAll(".reveal");
 
 const revealObserver = new IntersectionObserver(

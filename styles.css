@@ -49,6 +49,17 @@ body::before {
   mask-image: linear-gradient(to bottom, #000, transparent 78%);
 }
 
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(115deg, transparent 0 44%, rgba(255,100,31,.08) 44.5% 45%, transparent 45.5%),
+    radial-gradient(circle at 50% 0%, rgba(53,168,255,.08), transparent 34rem);
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -270,7 +281,27 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  margin: 28px 0 44px;
+  margin: 28px 0 18px;
+}
+
+.hero-assurance {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+
+.hero-assurance span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 7px 12px;
+  border: 1px solid rgba(255, 196, 76, .28);
+  border-radius: 999px;
+  color: var(--gold);
+  background: rgba(255, 196, 76, .08);
+  font-size: 13px;
+  font-weight: 900;
 }
 
 .hero-points {
@@ -430,6 +461,22 @@ h3 {
   background: linear-gradient(145deg, rgba(255,255,255,.09), rgba(255,255,255,.035));
 }
 
+.product-cards article,
+.catalog-grid article,
+.steps-grid article,
+.news-grid article {
+  transition: transform .24s ease, border-color .24s ease, background .24s ease;
+}
+
+.product-cards article:hover,
+.catalog-grid article:hover,
+.steps-grid article:hover,
+.news-grid article:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 138, 31, .5);
+  background: linear-gradient(145deg, rgba(107,54,255,.22), rgba(255,255,255,.055));
+}
+
 .product-cards img {
   width: 100%;
   height: 170px;
@@ -446,6 +493,26 @@ h3 {
 .news-grid p,
 .contact-grid p {
   color: var(--muted);
+}
+
+.product-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 16px;
+}
+
+.product-meta span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 5px 9px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(255,255,255,.06);
+  font-size: 12px;
+  font-weight: 850;
 }
 
 .product-cards a {
@@ -600,6 +667,38 @@ h3 {
   border-radius: 2px;
   background: var(--orange);
   transform: rotate(45deg);
+}
+
+.quote-strip {
+  width: min(calc(100% - var(--site-gutter) * 2), var(--site-max));
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(20px, 4vw, 56px);
+  align-items: center;
+  margin: 16px auto 0;
+  padding: clamp(24px, 4vw, 44px);
+  border: 1px solid rgba(255, 138, 31, .34);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 86% 28%, rgba(255,100,31,.28), transparent 26%),
+    linear-gradient(135deg, rgba(255,100,31,.13), rgba(107,54,255,.16) 42%, rgba(14,7,49,.86));
+  box-shadow: var(--shadow);
+}
+
+.quote-strip h2 {
+  max-width: 1050px;
+  margin-bottom: 12px;
+  font-size: clamp(30px, 3.4vw, 54px);
+}
+
+.quote-strip p:not(.eyebrow) {
+  max-width: 900px;
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.quote-strip .button {
+  min-width: 210px;
 }
 
 .steps-grid {
@@ -1035,6 +1134,7 @@ textarea:focus {
 
   .hero,
   .production,
+  .quote-strip,
   .about,
   .career,
   .contacts {
@@ -1060,6 +1160,10 @@ textarea:focus {
 
   .hero {
     padding-top: 110px;
+  }
+
+  .quote-strip {
+    align-items: start;
   }
 
   .hero-visual {
@@ -1115,10 +1219,23 @@ textarea:focus {
     grid-template-columns: 1fr;
   }
 
+  .hero-assurance {
+    margin-bottom: 24px;
+  }
+
   .hero {
     width: auto;
     margin-inline: 10px;
     padding-inline: 18px;
+  }
+
+  .quote-strip {
+    width: auto;
+    margin-inline: 10px;
+  }
+
+  .quote-strip .button {
+    width: 100%;
   }
 
   .hero-visual {
@@ -1168,9 +1285,32 @@ textarea:focus {
     justify-content: start;
   }
 
+  .equipment-track figure {
+    flex-basis: 280px;
+    min-height: 300px;
+  }
+
+  .equipment-track img {
+    height: 240px;
+  }
+
   .cookie {
     left: 12px;
     right: 12px;
     grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
   }
 }
