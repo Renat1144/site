@@ -141,7 +141,7 @@ form button:hover {
   align-items: flex-end;
   padding: 145px clamp(24px, 5vw, 70px) 82px;
   color: #fff;
-  background: url("assets/hero.jpg") center / cover no-repeat;
+  background: url("hero.jpg") center / cover no-repeat;
 }
 
 .hero-shade {
@@ -540,7 +540,7 @@ form button {
   min-height: 460px;
   padding: 92px clamp(24px, 5vw, 70px);
   color: #fff;
-  background: linear-gradient(rgba(0, 0, 0, .22), rgba(0, 0, 0, .72)), url("assets/hero-team.jpg") center / cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, .22), rgba(0, 0, 0, .72)), url("hero-team.jpg") center / cover no-repeat;
 }
 
 .career p {
