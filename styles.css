@@ -14,6 +14,8 @@
   --gold: #ffc44c;
   --radius: 8px;
   --shadow: 0 24px 80px rgba(0, 0, 0, .38);
+  --site-max: 1980px;
+  --site-gutter: clamp(14px, 2vw, 28px);
 }
 
 * {
@@ -102,13 +104,15 @@ h3 {
 
 .site-header {
   position: fixed;
-  inset: 14px clamp(14px, 2vw, 28px) auto;
+  inset: 14px auto auto 50%;
   z-index: 50;
   display: flex;
   align-items: center;
   gap: 24px;
+  width: min(calc(100% - var(--site-gutter) * 2), var(--site-max));
   min-height: 76px;
   padding: 10px 18px;
+  transform: translateX(-50%);
   border: 1px solid var(--stroke);
   border-radius: var(--radius);
   background: rgba(7, 3, 28, .82);
@@ -231,7 +235,8 @@ h3 {
   gap: clamp(24px, 4vw, 64px);
   align-items: center;
   overflow: hidden;
-  margin: 0 clamp(14px, 2vw, 28px);
+  width: min(calc(100% - var(--site-gutter) * 2), var(--site-max));
+  margin: 0 auto;
   padding: 126px clamp(26px, 4vw, 52px) 38px;
   border: 1px solid var(--stroke);
   border-radius: var(--radius);
@@ -323,7 +328,8 @@ h3 {
 .career,
 .news,
 .contacts {
-  margin: 16px clamp(14px, 2vw, 28px) 0;
+  width: min(calc(100% - var(--site-gutter) * 2), var(--site-max));
+  margin: 16px auto 0;
   border: 1px solid var(--stroke);
   border-radius: var(--radius);
   background: rgba(14, 7, 49, .72);
@@ -881,7 +887,8 @@ textarea:focus {
   grid-template-columns: minmax(220px, .8fr) minmax(0, 1.6fr);
   gap: clamp(24px, 4vw, 56px);
   align-items: start;
-  margin: 16px clamp(14px, 2vw, 28px) 28px;
+  width: min(calc(100% - var(--site-gutter) * 2), var(--site-max));
+  margin: 16px auto 28px;
   padding: clamp(26px, 4vw, 44px);
   border: 1px solid var(--stroke);
   border-radius: var(--radius);
@@ -1087,6 +1094,8 @@ textarea:focus {
 @media (max-width: 640px) {
   .site-header {
     inset: 10px;
+    width: auto;
+    transform: none;
   }
 
   .phone,
@@ -1107,6 +1116,7 @@ textarea:focus {
   }
 
   .hero {
+    width: auto;
     margin-inline: 10px;
     padding-inline: 18px;
   }
