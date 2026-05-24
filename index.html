@@ -3,171 +3,318 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Современная упаковка из гофрокартона в Пензе</title>
-    <meta name="description" content="Производство упаковки из гофрокартона под задачи малого, среднего и крупного бизнеса.">
+    <title>Современная упаковка — гофроупаковка и гофрокартон</title>
+    <meta name="description" content="Современная упаковка производит гофрокороба, гофрокартон, Z-картон и изделия сложной высечки с доставкой по России.">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <header class="site-header">
+    <header class="site-header" data-header>
       <a class="brand" href="#top" aria-label="Современная упаковка">
-        <img src="logo.svg" alt="Современная упаковка">
+        <img src="Logo.png" alt="Современная упаковка">
       </a>
-      <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">
+      <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" data-menu-toggle>
         <span></span><span></span><span></span>
       </button>
-      <nav class="main-nav" aria-label="Основное меню">
+      <nav class="main-nav" aria-label="Основное меню" data-nav>
         <a href="#about">Компания</a>
         <a href="#products">Продукция</a>
-        <a href="#services">Услуги</a>
-        <a href="#people">Карьера</a>
+        <a href="#production">Услуги</a>
+        <a href="#career">Карьера</a>
         <a href="#news">Новости</a>
         <a href="#contacts">Контакты</a>
       </nav>
       <div class="header-actions">
-        <a class="phone" href="tel:+78002500151">+7 (800) 250-01-51</a>
-        <a class="round-link" href="tel:+78002500151" aria-label="Позвонить">☎</a>
-        <a class="round-link" href="mailto:mail@gofropenza.ru" aria-label="Написать email">✉</a>
-        <a class="round-link" href="https://t.me/" aria-label="Telegram">▶</a>
-        <a class="cta" href="#quote">Связаться с нами</a>
+        <a class="phone" href="tel:+78002500151">+7 (800) 250-01-51<span>Звонок по России бесплатный</span></a>
+        <a class="icon-link" href="tel:+78002500151" aria-label="Позвонить">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.3 1.3.4 2.6.6 4 .6.7 0 1.2.5 1.2 1.2v3.5c0 .7-.5 1.2-1.2 1.2C10.4 21.9 2.1 13.6 2.1 3.4c0-.7.5-1.2 1.2-1.2h3.5c.7 0 1.2.5 1.2 1.2 0 1.4.2 2.7.6 4 .1.4 0 .8-.3 1.2l-1.7 2.2Z"/></svg>
+        </a>
+        <a class="icon-link" href="mailto:mail@gofropenza.ru" aria-label="Написать">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.8 5h16.4c1 0 1.8.8 1.8 1.8v10.4c0 1-.8 1.8-1.8 1.8H3.8c-1 0-1.8-.8-1.8-1.8V6.8C2 5.8 2.8 5 3.8 5Zm.7 3.3v8.2h15V8.3l-7.1 5.1c-.3.2-.8.2-1.1 0L4.5 8.3Zm1.2-1.5 6.3 4.5 6.3-4.5H5.7Z"/></svg>
+        </a>
+        <a class="icon-link" href="https://t.me/" aria-label="Telegram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.7 3.2c.3-.1.7.2.6.6l-3.4 16.1c-.1.6-.8.9-1.3.5l-4.9-3.6-2.5 2.4c-.4.4-1 .2-1.1-.4l-.7-4.8-4.6-1.5c-.7-.2-.7-1.2 0-1.5L21.7 3.2Zm-4.2 4.3-7.9 5.9.5 3.3 1.4-1.4c.3-.3.8-.4 1.2-.1l4.1 3 2.5-11.8-1.8 1.1Z"/></svg>
+        </a>
+        <a class="header-cta" href="#quote">Связаться с нами</a>
       </div>
     </header>
 
     <main id="top">
       <section class="hero">
-        <div class="hero-shade"></div>
-        <div class="hero-content">
-          <p class="eyebrow">Производство упаковки из гофрокартона</p>
-          <h1>Производство</h1>
-          <p>под задачи малого, среднего и крупного бизнеса</p>
-          <a class="hero-link" href="#quote">Запросить коммерческое предложение</a>
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <p class="eyebrow">Гофроупаковка, которая работает на ваш бренд</p>
+          <h1>Современная упаковка</h1>
+          <p class="lead">Производим гофрокороба, гофрокартон, Z-картон и изделия сложной высечки для торговли, производства и e-commerce. Быстро считаем, точно режем, держим качество партии.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#quote">Обсудить проект</a>
+            <a class="button ghost" href="#production">Смотреть производство</a>
+          </div>
+          <div class="hero-points">
+            <span>Работаем точно в срок</span>
+            <span>Стабильное качество</span>
+            <span>Доставка по всей РФ</span>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="Производственная линия и упаковка">
+          <aside class="hero-capabilities">
+            <span>Современное оборудование</span>
+            <span>Собственное производство</span>
+            <span>Гибкие тиражи и сроки</span>
+          </aside>
         </div>
       </section>
 
-      <section class="production section-dark" id="services">
+      <section class="metrics" aria-label="Показатели компании">
+        <article><span>10+</span><p>лет опыта</p></article>
+        <article><span>24/7</span><p>производство</p></article>
+        <article><span>800+</span><p>клиентов</p></article>
+        <article><span>1200+</span><p>проектов выполнено</p></article>
+        <article><span>98%</span><p>заказов в срок</p></article>
+        <article><span>5</span><p>производственных площадок</p></article>
+      </section>
+
+      <section class="product-showcase" id="products">
         <div class="section-head">
-          <p class="eyebrow">Участник проекта производительность.рф</p>
-          <h2>Технологии производства</h2>
-          <p>Два гофроагрегата дают параллельные профили B/C/E. Автолиния минимизирует ошибки и ускоряет переналадку. 5С — дисциплина порядка, меньше простоев, стабильное качество.</p>
+          <p class="eyebrow">Наша продукция</p>
+          <h2>Упаковка для склада, витрины и доставки</h2>
         </div>
-        <div class="image-track">
-          <figure><img src="production-1.jpg" alt="Производственный цех с оборудованием"><figcaption>Автоматические линии</figcaption></figure>
-          <figure><img src="production-2.jpg" alt="Склад с рулонами картона"><figcaption>Сырьевой склад</figcaption></figure>
-          <figure><img src="production-3.jpg" alt="Гофрокартон на производстве"><figcaption>Контроль партии</figcaption></figure>
+        <nav class="product-tabs" aria-label="Разделы продукции">
+          <a href="#gofrokoroba">Гофрокороба</a>
+          <a href="#gofrokarton">Гофрокартон</a>
+          <a href="#z-karton">Z-картон</a>
+          <a href="#complex-cut">Изделия сложной высечки</a>
+        </nav>
+        <div class="product-cards">
+          <article id="gofrokoroba">
+            <h3>Гофрокороба</h3>
+            <img src="15.png" alt="Гофрокороба">
+            <p>Четырёхклапанные и самосборные коробки для хранения, перевозки, маркетплейсов и регулярных поставок.</p>
+            <a href="#catalog-boxes">Подробнее</a>
+          </article>
+          <article id="gofrokarton">
+            <h3>Гофрокартон</h3>
+            <img src="13.png" alt="Гофрокартон">
+            <p>Листы 2,0×1,0, 1,5×1,5, 1,2×1,0 и 1,2×0,8 с бурым или белёным лицевым слоем.</p>
+            <a href="#catalog-cardboard">Подробнее</a>
+          </article>
+          <article id="z-karton">
+            <h3>Z-картон</h3>
+            <img src="18.png" alt="Z-картон">
+            <p>Бесконечный гофрокартон марок Т21-Т27 и П31-П34, ширина Z ф.1100-2200.</p>
+            <a href="#catalog-z">Подробнее</a>
+          </article>
+          <article id="complex-cut">
+            <h3>Сложная высечка</h3>
+            <img src="17.png" alt="Изделия сложной высечки">
+            <p>Лотки, самосборные короба, решётки и элементы сложной конфигурации по стандартам FEFCO.</p>
+            <a href="#catalog-cut">Подробнее</a>
+          </article>
         </div>
       </section>
 
-      <section class="products" id="products">
-        <div class="products-copy">
-          <p class="eyebrow">Наша продукция</p>
-          <h2>Более 10 лет поставляем высококачественный гофрокартон</h2>
-          <p><strong>Экология:</strong> до 50% продукции из вторичного сырья.</p>
-          <p><strong>Технологии:</strong> 2 гофроагрегата — параллельные профили, снижение очередей.</p>
-          <p><strong>Качество:</strong> контроль геометрии и клеевого шва; тестовые протоколы по партиям.</p>
-          <div class="product-tags">
-            <span>Пятислойный гофрокартон</span>
-            <span>Трёхслойный гофрокартон</span>
-            <span>Изделия сложной высечки</span>
-            <span>Четырехклапанные коробки</span>
+      <section class="production" id="production">
+        <div class="production-copy">
+          <p class="eyebrow">Производственные возможности</p>
+          <h2>Технологии, которые держат темп</h2>
+          <div class="capability-grid">
+            <article><b>Современные технологии печати и высечки</b><span>Флексопечать до 3 цветов на листах, коробах и изделиях сложной высечки.</span></article>
+            <article><b>Автоматизированные линии</b><span>Контроль качества и стабильный выпуск партий без лишних простоев.</span></article>
+            <article><b>Любые объёмы и сложность</b><span>Работаем с серийными позициями и нестандартными задачами.</span></article>
+            <article><b>Проектирование упаковки</b><span>Подбираем профиль, марку картона, конструкцию и экономику тиража.</span></article>
           </div>
         </div>
-        <div class="stats-card">
-          <h3>Мы в цифрах</h3>
-          <div class="stats-grid">
-            <div><strong>300+</strong><span>сотрудников</span></div>
-            <div><strong>24/7</strong><span>производство</span></div>
-            <div><strong>800+</strong><span>клиентов</span></div>
+        <div class="equipment-carousel" aria-label="Лента оборудования">
+          <div class="equipment-track">
+            <figure><img src="11.png" alt="Гофроагрегат"><figcaption>Гофроагрегат</figcaption></figure>
+            <figure><img src="12.png" alt="Производственное оборудование"><figcaption>Линия обработки</figcaption></figure>
+            <figure aria-hidden="true"><img src="11.png" alt=""><figcaption>Гофроагрегат</figcaption></figure>
+            <figure aria-hidden="true"><img src="12.png" alt=""><figcaption>Линия обработки</figcaption></figure>
           </div>
+        </div>
+      </section>
+
+      <section class="catalog">
+        <div class="section-head">
+          <p class="eyebrow">Каталог</p>
+          <h2>Популярные позиции из производственной линейки</h2>
+        </div>
+        <div class="catalog-grid">
+          <article id="catalog-cardboard">
+            <h3>Гофрокартон</h3>
+            <img class="catalog-image" src="13.png" alt="Гофрокартон">
+            <ul>
+              <li>Лист 2,0×1,0, 1,5×1,5, 1,2×1,0, 1,2×0,8</li>
+              <li>Марки Т21-Т27, профили B или C</li>
+              <li>Марки П31-П34, профиль BC</li>
+              <li>Бурый или белёный лицевой слой</li>
+              <li>Возможна 3-цветная флексопечать</li>
+            </ul>
+          </article>
+          <article id="catalog-z">
+            <h3>Z-картон</h3>
+            <img class="catalog-image" src="18.png" alt="Z-картон">
+            <ul>
+              <li>Бесконечный гофрокартон Z ф.1100-2200</li>
+              <li>Марки Т21-Т27, профили B или C</li>
+              <li>Марки П31-П34, профиль BC</li>
+              <li>Бурый или белёный лицевой слой</li>
+              <li>Возможна 2-цветная флексопечать</li>
+            </ul>
+          </article>
+          <article id="catalog-boxes">
+            <h3>Гофроящики</h3>
+            <img class="catalog-image" src="15.png" alt="Гофроящики">
+            <ul>
+              <li>600×400×400, 400×300×200, 465×165×290</li>
+              <li>380×355×155, 370×230×130, 395×198×265</li>
+              <li>304×150×260, 210×139×313, 390×330×190</li>
+              <li>700×450×570, 300×300×1000, 276×184×1074</li>
+              <li>Флексопечать, отверстия, ручки, скосы, перфорация</li>
+            </ul>
+          </article>
+          <article id="catalog-cut">
+            <h3>Сложная высечка</h3>
+            <img class="catalog-image" src="17.png" alt="Изделия сложной высечки">
+            <ul>
+              <li>Самосборные короба FEFCO 0427 и FEFCO 0421</li>
+              <li>Лотки FEFCO 0453, FEFCO 0301, FEFCO 0300</li>
+              <li>Гофролотки различного назначения</li>
+              <li>Решётки и элементы сложной конфигурации</li>
+              <li>Бурый или белёный лицевой слой, 3-цветная печать</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="work-steps" id="services">
+        <div class="section-head">
+          <p class="eyebrow">Как мы работаем</p>
+          <h2>Понятный маршрут от заявки до отгрузки</h2>
+        </div>
+        <div class="steps-grid">
+          <article><span>01</span><h3>Согласуем задачу</h3><p>Фиксируем товар, тираж, требования к прочности, печати и доставке.</p></article>
+          <article><span>02</span><h3>Подбираем конструкцию</h3><p>Определяем профиль, марку картона, формат и элементы высечки.</p></article>
+          <article><span>03</span><h3>Запускаем производство</h3><p>Передаём заказ на линию, контролируем геометрию и клеевой шов.</p></article>
+          <article><span>04</span><h3>Печатаем и высекаем</h3><p>Наносим флексопечать, делаем ручки, отверстия, скосы и перфорацию.</p></article>
+          <article><span>05</span><h3>Отгружаем</h3><p>Готовим партию к логистике и доставляем по России своим транспортом или ТК.</p></article>
         </div>
       </section>
 
       <section class="about" id="about">
-        <div class="about-media">
-          <img src="product.png" alt="Пример гофроупаковки">
+        <div>
+          <p class="eyebrow">Компания</p>
+          <h2>Более 10 лет поставляем высококачественный гофрокартон</h2>
+          <p>«Современная упаковка» — один из лидеров рынка гофрокартона и гофроупаковки. Работаем по SLA, гарантируем объёмы резервом мощностей и доставляем по всей РФ.</p>
         </div>
-        <div class="about-copy">
-          <p class="eyebrow">О нас</p>
-          <h2>«Современная упаковка» — один из лидеров рынка гофрокартона и гофроупаковки</h2>
-          <p>Работаем по SLA, гарантируем объёмы резервом мощностей и доставляем по всей РФ.</p>
-          <div class="principles">
-            <article><span>1</span><p><strong>Автоматизация</strong> увеличивает выпуск и уменьшает количество ошибок при производстве.</p></article>
-            <article><span>2</span><p><strong>Гарантия качества</strong> — 5С-контроль, допуск по геометрии ±1 мм.</p></article>
-            <article><span>3</span><p><strong>Забота об окружающей среде</strong> — рациональное производство и вторичное сырьё.</p></article>
+        <div class="about-list">
+          <article><strong>1</strong><p><b>Автоматизация</b> увеличивает объём выпускаемой продукции и снижает количество ошибок.</p></article>
+          <article><strong>2</strong><p><b>Гарантия качества</b> — 5C-контроль, допуск по геометрии ±1 мм, спецификацию согласуем за 24 часа.</p></article>
+          <article><strong>3</strong><p><b>Экология</b> — до 50% продукции изготавливается из вторичного сырья.</p></article>
+        </div>
+      </section>
+
+      <section class="career" id="career">
+        <div class="career-copy">
+          <p class="eyebrow">Карьера</p>
+          <h2>Люди — это главное</h2>
+          <p>В основе нашего производства — не только станки и технологии, а в первую очередь команда. Мы растим экспертов, развиваем инициативу и создаём условия, в которых хочется работать и расти.</p>
+          <div class="career-benefits">
+            <span>Обучение на производстве</span>
+            <span>Понятные процессы 5C</span>
+            <span>Командная культура</span>
+          </div>
+          <a class="button primary" href="#quote">Связаться с нами</a>
+        </div>
+        <div class="career-visual">
+          <img src="7.png" alt="Представитель компании">
+        </div>
+      </section>
+
+      <section class="news" id="news">
+        <div class="section-head">
+          <p class="eyebrow">Новости</p>
+          <h2>Производство, команда и партнёрские задачи</h2>
+        </div>
+        <div class="news-carousel" aria-label="Лента новостей">
+          <div class="news-grid news-track">
+            <article class="news-tour"><img src="production-1.jpg" alt="Производственный цех"><h3>Смотрите тур по производству</h3><p>Короткий маршрут по линии: от листа гофрокартона до готовой упаковки.</p><span>2:45</span></article>
+            <article><img src="news-1.jpg" alt="Производство"><h3>Производство и культура</h3><p>Рассказы о процессах, оборудовании и внутренней системе качества.</p></article>
+            <article><img src="news-2.jpg" alt="Команда"><h3>Команда месяца</h3><p>Конкурсы бригад, достижения сотрудников и корпоративная жизнь.</p></article>
+            <article><img src="news-3.jpg" alt="Партнёры"><h3>Партнёрам</h3><p>Материалы о логистике, новых возможностях и нестандартных задачах клиентов.</p></article>
+            <article class="news-tour" aria-hidden="true"><img src="production-1.jpg" alt=""><h3>Смотрите тур по производству</h3><p>Короткий маршрут по линии: от листа гофрокартона до готовой упаковки.</p><span>2:45</span></article>
+            <article aria-hidden="true"><img src="news-1.jpg" alt=""><h3>Производство и культура</h3><p>Рассказы о процессах, оборудовании и внутренней системе качества.</p></article>
+            <article aria-hidden="true"><img src="news-2.jpg" alt=""><h3>Команда месяца</h3><p>Конкурсы бригад, достижения сотрудников и корпоративная жизнь.</p></article>
+            <article aria-hidden="true"><img src="news-3.jpg" alt=""><h3>Партнёрам</h3><p>Материалы о логистике, новых возможностях и нестандартных задачах клиентов.</p></article>
           </div>
         </div>
       </section>
 
-      <section class="quote-band">
-        <img src="person.png" alt="Представитель компании">
-        <blockquote>
-          <p>«Система 5С — не просто порядок, это дисциплина, которая напрямую влияет на качество. У нас всё на своих местах, нет хаоса — а значит, нет сбоев.»</p>
-          <cite>Валерий Викторович Липатов<br><span>Начальник службы развития производственной системы</span></cite>
-        </blockquote>
-      </section>
-
-      <section class="people" id="people">
-        <div class="people-copy">
-          <p class="eyebrow">Люди — это главное</p>
-          <h2>В основе производства — команда</h2>
-          <p>Каждый сотрудник — часть общей системы, где важен вклад каждого. Мы растим экспертов, развиваем инициативу и создаём условия, в которых хочется работать и расти.</p>
-          <a class="dark-button" href="#career">Хочу работать</a>
-        </div>
-        <img src="team.png" alt="Сотрудники производства">
-      </section>
-
-      <section class="news section-dark" id="news">
-        <div class="section-head compact">
-          <p class="eyebrow">Инфоцентр предприятия</p>
-          <h2>Новости</h2>
-        </div>
-        <div class="news-grid">
-          <article><img src="news-1.jpg" alt="Новость предприятия"><h3>Производство и качество</h3><p>Обновления о процессах, оборудовании и внутренней культуре предприятия.</p></article>
-          <article><img src="news-2.jpg" alt="Новость предприятия"><h3>Команда и развитие</h3><p>Истории сотрудников, обучение и участие в производственных проектах.</p></article>
-          <article><img src="news-3.jpg" alt="Новость предприятия"><h3>Партнёрам</h3><p>Материалы о поставках, логистике и новых возможностях сотрудничества.</p></article>
-        </div>
-      </section>
-
       <section class="contacts" id="contacts">
-        <div class="contact-list">
+        <div>
           <p class="eyebrow">Контактная информация</p>
-          <h2>Свяжитесь с нами</h2>
-          <a href="mailto:mail@gofropenza.ru">mail@gofropenza.ru</a>
-          <a href="tel:+78412660303">+7 (8412) 66-03-03</a>
-          <a href="tel:+79374001277">+7 (937) 400-12-77</a>
-          <p>440007, Пензенская область, г. Пенза, ул. Тарханова, д. 1</p>
-          <a class="map-link" href="https://yandex.ru/maps/" target="_blank" rel="noreferrer">На карте</a>
+          <h2>Рассчитаем упаковку под ваш продукт</h2>
+          <div class="contact-grid">
+            <article><h3>Секретарь</h3><a href="tel:+78412660303">+7 (8412) 66-03-03</a><a href="mailto:mail@gofropenza.ru">mail@gofropenza.ru</a></article>
+            <article><h3>Отдел продаж</h3><a href="tel:+78002500151">8 (800) 250-01-51</a></article>
+            <article><h3>Отдел планирования и снабжения</h3><a href="tel:+79808005894">+7 (980) 800-58-94</a></article>
+            <article><h3>Служба персонала</h3><a href="tel:+79374001277">+7 (937) 400-12-77</a></article>
+            <article><h3>Юридический адрес</h3><p>440007 Пензенская область, г. Пенза, ул. Тарханова, д. 1</p></article>
+          </div>
         </div>
         <form class="contact-form" id="quote">
-          <h3>Запросить коммерческое предложение</h3>
-          <label>Ваше имя<input type="text" name="name" required></label>
-          <label>Телефон<input type="tel" name="phone" required></label>
-          <label>E-mail<input type="email" name="email"></label>
-          <label>Ваше сообщение<textarea name="message" rows="4"></textarea></label>
-          <label class="checkbox"><input type="checkbox" required> Согласен(на) на обработку персональных данных</label>
-          <button type="submit">Отправить</button>
+          <h3>Заявка на расчёт</h3>
+          <label>Имя<input type="text" name="name" autocomplete="name" required></label>
+          <label>Телефон<input type="tel" name="phone" autocomplete="tel" required></label>
+          <label>E-mail<input type="email" name="email" autocomplete="email"></label>
+          <label>Что нужно упаковать<textarea name="message" rows="4"></textarea></label>
+          <label class="checkbox"><input type="checkbox" required> Согласен на обработку персональных данных</label>
+          <button class="button primary" type="submit">Отправить заявку</button>
           <p class="form-status" aria-live="polite"></p>
         </form>
-      </section>
-
-      <section class="career" id="career">
-        <h2>Хотите у нас работать?</h2>
-        <p>Оставьте заявку, и мы поможем подобрать подходящую вакансию.</p>
-        <a class="hero-link" href="#quote">Заполнить форму</a>
       </section>
     </main>
 
     <footer class="site-footer">
-      <img src="logo.svg" alt="Современная упаковка">
-      <p>© 2025 ООО «Современная упаковка»</p>
-      <nav>
-        <a href="#about">Компания</a>
-        <a href="#products">Продукция</a>
-        <a href="#contacts">Контакты</a>
+      <div class="footer-brand">
+        <img src="Logo.png" alt="Современная упаковка">
+        <p>Производство упаковки и гофрокартона с доставкой по всей России</p>
+      </div>
+      <nav class="footer-nav" aria-label="Навигация в подвале">
+        <div>
+          <h3>Разделы</h3>
+          <a href="#about">Компания</a>
+          <a href="#products">Продукция</a>
+          <a href="#production">Производство</a>
+          <a href="#services">Услуги</a>
+          <a href="#career">Карьера</a>
+          <a href="#news">Новости</a>
+          <a href="#contacts">Контакты</a>
+        </div>
+        <div>
+          <h3>Продукция</h3>
+          <a href="#gofrokoroba">Гофрокороба</a>
+          <a href="#gofrokarton">Гофрокартон</a>
+          <a href="#z-karton">Z-картон</a>
+          <a href="#complex-cut">Изделия сложной высечки</a>
+        </div>
+        <div>
+          <h3>Контакты</h3>
+          <a href="tel:+78002500151">8 (800) 250-01-51</a>
+          <a href="tel:+78412660303">+7 (8412) 66-03-03</a>
+          <a href="mailto:mail@gofropenza.ru">mail@gofropenza.ru</a>
+          <span>Пенза, ул. Тарханова, д. 1</span>
+        </div>
       </nav>
+      <div class="footer-bottom">
+        <span>ООО «Современная упаковка»</span>
+        <span>ИНН 5835076560</span>
+        <a href="#top">Наверх</a>
+      </div>
     </footer>
 
-    <div class="cookie" role="status">
-      <p>Этот сайт использует cookie. Оставаясь на сайте, вы соглашаетесь с их использованием.</p>
-      <button type="button">OK</button>
+    <div class="cookie" role="status" data-cookie>
+      <p>Сайт использует cookie для корректной работы интерфейса.</p>
+      <button type="button" data-cookie-button>OK</button>
     </div>
 
     <script src="script.js"></script>
