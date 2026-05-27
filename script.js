@@ -1,20 +1,68 @@
 const header = document.querySelector("[data-header]");
 const menuButton = document.querySelector("[data-menu-toggle]");
+const navLinks = document.querySelectorAll("[data-nav] a");
 const cookie = document.querySelector("[data-cookie]");
 const cookieButton = document.querySelector("[data-cookie-button]");
 const form = document.querySelector(".contact-form");
+const floatingCta = document.querySelector(".floating-cta");
+const countItems = document.querySelectorAll("[data-count]");
+
+const products = {
+  boxes: {
+    image: "15.png",
+    alt: "Гофрокороба",
+    tag: "Для хранения и доставки",
+    title: "Гофрокороба",
+    text: "Четырёхклапанные и самосборные коробки для маркетплейсов, розницы, склада и регулярных поставок.",
+    list: ["FEFCO 0201, 0427, 0421", "Печать, ручки, отверстия, перфорация", "Бурый или белёный лицевой слой"]
+  },
+  cardboard: {
+    image: "13.png",
+    alt: "Гофрокартон",
+    tag: "Для защиты и комплектации",
+    title: "Гофрокартон",
+    text: "Трёхслойный и пятислойный листовой материал для упаковки, прокладок, вкладышей и защитных элементов.",
+    list: ["Марки Т21-Т27 и П31-П34", "Профили B, C, BC", "Листы популярных форматов"]
+  },
+  zcard: {
+    image: "18.png",
+    alt: "Z-картон",
+    tag: "Для нестандартных изделий",
+    title: "Z-картон",
+    text: "Бесконечный гофрокартон для гибкой упаковки длинномерных и нестандартных товаров.",
+    list: ["Ширина Z ф.1100-2200", "Два и три слоя", "Печать до 2 цветов"]
+  },
+  cut: {
+    image: "17.png",
+    alt: "Сложная высечка",
+    tag: "Для витрины и точной фиксации",
+    title: "Сложная высечка",
+    text: "Лотки, решётки, вкладыши и индивидуальные конструкции под размеры продукта и требования выкладки.",
+    list: ["Индивидуальная конструкция", "Точная геометрия", "Подготовка к серии"]
+  }
+};
 
 menuButton?.addEventListener("click", () => {
   const isOpen = header?.classList.toggle("is-open") ?? false;
+  document.body.classList.toggle("menu-open", isOpen);
   menuButton.setAttribute("aria-expanded", String(isOpen));
 });
 
-document.querySelectorAll("[data-nav] a").forEach((link) => {
+navLinks.forEach((link) => {
   link.addEventListener("click", () => {
     header?.classList.remove("is-open");
+    document.body.classList.remove("menu-open");
     menuButton?.setAttribute("aria-expanded", "false");
   });
 });
+
+const updateHeader = () => {
+  header?.classList.toggle("is-scrolled", window.scrollY > 24);
+  floatingCta?.classList.toggle("is-visible", window.scrollY > 520);
+};
+
+updateHeader();
+window.addEventListener("scroll", updateHeader, { passive: true });
 
 if (localStorage.getItem("gofropenzaCookieAccepted") === "true") {
   cookie?.classList.add("is-hidden");
@@ -25,25 +73,88 @@ cookieButton?.addEventListener("click", () => {
   cookie?.classList.add("is-hidden");
 });
 
-document
-  .querySelectorAll("main > section, .metrics article, .product-cards article, .catalog-grid article, .steps-grid article, .contact-grid article")
-  .forEach((item) => item.classList.add("reveal"));
-
 const revealItems = document.querySelectorAll(".reveal");
 
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.16 }
-);
+const animateCount = (item) => {
+  if (item.dataset.done === "true") return;
+  item.dataset.done = "true";
+  const target = Number(item.dataset.count);
+  const duration = 1100;
+  const start = performance.now();
 
-revealItems.forEach((item) => revealObserver.observe(item));
+  const tick = (time) => {
+    const progress = Math.min((time - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    item.textContent = Math.round(target * eased).toString() + (target >= 50 ? "+" : "");
+    if (progress < 1) requestAnimationFrame(tick);
+  };
+
+  requestAnimationFrame(tick);
+};
+
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.14 }
+  );
+
+  revealItems.forEach((item) => revealObserver.observe(item));
+
+  const countObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          countObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.6 }
+  );
+
+  countItems.forEach((item) => countObserver.observe(item));
+} else {
+  revealItems.forEach((item) => item.classList.add("is-visible"));
+  countItems.forEach(animateCount);
+}
+
+document.querySelectorAll("[data-product-tab]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const key = button.dataset.productTab;
+    const product = products[key];
+    const stage = document.querySelector(".product-stage");
+    if (!product || !stage) return;
+
+    document.querySelectorAll("[data-product-tab]").forEach((tab) => tab.classList.toggle("is-active", tab === button));
+    stage.classList.add("is-changing");
+
+    window.setTimeout(() => {
+      const image = document.querySelector("[data-product-image]");
+      const tag = document.querySelector("[data-product-tag]");
+      const title = document.querySelector("[data-product-title]");
+      const text = document.querySelector("[data-product-text]");
+      const list = document.querySelector("[data-product-list]");
+
+      if (image) {
+        image.src = product.image;
+        image.alt = product.alt;
+      }
+      if (tag) tag.textContent = product.tag;
+      if (title) title.textContent = product.title;
+      if (text) text.textContent = product.text;
+      if (list) list.innerHTML = product.list.map((item) => `<li>${item}</li>`).join("");
+
+      stage.classList.remove("is-changing");
+    }, 180);
+  });
+});
 
 form?.addEventListener("submit", (event) => {
   event.preventDefault();
