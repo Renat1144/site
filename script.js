@@ -18,9 +18,9 @@ const products = {
   },
   cardboard: {
     image: "13.png",
-    alt: "Гофрокартон",
+    alt: "Листовой гофрокартон",
     tag: "Для защиты и комплектации",
-    title: "Гофрокартон",
+    title: "Листовой гофрокартон",
     text: "Трёхслойный и пятислойный листовой материал для упаковки, прокладок, вкладышей и защитных элементов.",
     list: ["Марки Т21-Т27 и П31-П34", "Профили B, C, BC", "Листы популярных форматов"]
   },
@@ -39,6 +39,14 @@ const products = {
     title: "Сложная высечка",
     text: "Лотки, решётки, вкладыши и индивидуальные конструкции под размеры продукта и требования выкладки.",
     list: ["Индивидуальная конструкция", "Точная геометрия", "Подготовка к серии"]
+  },
+  support: {
+    image: "20.png",
+    alt: "Вспомогательная упаковка",
+    tag: "Для комплектации и защиты",
+    title: "Вспомогательная упаковка",
+    text: "Прокладки, вкладыши, перегородки и элементы фиксации, которые помогают довести товар до клиента без повреждений.",
+    list: ["Защита внутри коробки", "Разделение и фиксация товара", "Подготовка под регулярные поставки"]
   }
 };
 
@@ -85,7 +93,8 @@ const animateCount = (item) => {
   const tick = (time) => {
     const progress = Math.min((time - start) / duration, 1);
     const eased = 1 - Math.pow(1 - progress, 3);
-    item.textContent = Math.round(target * eased).toString() + (target >= 50 ? "+" : "");
+    const suffix = item.dataset.suffix ?? (target >= 50 ? "+" : "");
+    item.textContent = Math.round(target * eased).toString() + suffix;
     if (progress < 1) requestAnimationFrame(tick);
   };
 
@@ -125,14 +134,16 @@ if ("IntersectionObserver" in window) {
   countItems.forEach(animateCount);
 }
 
-document.querySelectorAll("[data-product-tab]").forEach((button) => {
-  button.addEventListener("click", () => {
+const productTabs = Array.from(document.querySelectorAll("[data-product-tab]"));
+let productSliderTimer;
+
+const setProduct = (button) => {
     const key = button.dataset.productTab;
     const product = products[key];
     const stage = document.querySelector(".product-stage");
     if (!product || !stage) return;
 
-    document.querySelectorAll("[data-product-tab]").forEach((tab) => tab.classList.toggle("is-active", tab === button));
+    productTabs.forEach((tab) => tab.classList.toggle("is-active", tab === button));
     stage.classList.add("is-changing");
 
     window.setTimeout(() => {
@@ -153,8 +164,31 @@ document.querySelectorAll("[data-product-tab]").forEach((button) => {
 
       stage.classList.remove("is-changing");
     }, 180);
+};
+
+const startProductSlider = () => {
+  if (productSliderTimer || productTabs.length < 2) return;
+  productSliderTimer = window.setInterval(() => {
+    const activeIndex = Math.max(0, productTabs.findIndex((tab) => tab.classList.contains("is-active")));
+    const next = productTabs[(activeIndex + 1) % productTabs.length];
+    setProduct(next);
+  }, 5200);
+};
+
+const resetProductSlider = () => {
+  window.clearInterval(productSliderTimer);
+  productSliderTimer = undefined;
+  startProductSlider();
+};
+
+productTabs.forEach((button) => {
+  button.addEventListener("click", () => {
+    setProduct(button);
+    resetProductSlider();
   });
 });
+
+startProductSlider();
 
 form?.addEventListener("submit", (event) => {
   event.preventDefault();
