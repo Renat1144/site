@@ -6,6 +6,17 @@ const cookieButton = document.querySelector("[data-cookie-button]");
 const form = document.querySelector(".contact-form");
 const floatingCta = document.querySelector(".floating-cta");
 const countItems = document.querySelectorAll("[data-count]");
+const aboutVideo = document.querySelector("[data-about-video]");
+const aboutVideoPlay = document.querySelector("[data-about-video-play]");
+
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+
+window.scrollTo(0, 0);
+window.addEventListener("pageshow", () => {
+  window.requestAnimationFrame(() => window.scrollTo(0, 0));
+});
 
 const products = {
   boxes: {
@@ -189,6 +200,18 @@ productTabs.forEach((button) => {
 });
 
 startProductSlider();
+
+aboutVideoPlay?.addEventListener("click", () => {
+  aboutVideo?.play();
+});
+
+aboutVideo?.addEventListener("play", () => {
+  aboutVideo.closest(".about-video")?.classList.add("is-playing");
+});
+
+aboutVideo?.addEventListener("pause", () => {
+  aboutVideo.closest(".about-video")?.classList.remove("is-playing");
+});
 
 form?.addEventListener("submit", (event) => {
   event.preventDefault();
