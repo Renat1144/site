@@ -183,7 +183,7 @@ const startProductSlider = () => {
     const activeIndex = Math.max(0, productTabs.findIndex((tab) => tab.classList.contains("is-active")));
     const next = productTabs[(activeIndex + 1) % productTabs.length];
     setProduct(next);
-  }, 5200);
+  }, 3900);
 };
 
 const resetProductSlider = () => {
