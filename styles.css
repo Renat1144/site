@@ -265,7 +265,7 @@ h3 {
 .hero-media {
   position: absolute;
   inset: 0;
-  background: url("production-1.jpg") center / cover no-repeat;
+  background: var(--navy);
   animation: heroZoom 18s ease-in-out infinite alternate;
 }
 
